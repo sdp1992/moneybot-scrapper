@@ -8,7 +8,11 @@ class MongoDatabase:
     DATABASE = pymongo.MongoClient(URI).get_default_database()
 
     @staticmethod
-    def insert(collection: str, data: Dict):
+    def update(collection: str, query, data):
+        MongoDatabase.DATABASE[collection].update(query, data, upsert=True)
+
+    @staticmethod
+    def insert(collection: str, data):
         MongoDatabase.DATABASE[collection].insert(data)
 
     @staticmethod

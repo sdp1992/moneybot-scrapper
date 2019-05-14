@@ -7,3 +7,5 @@ class ScrappingErrors(Exception):
 
 class UnableToExtractError(ScrappingErrors):
     pass
+
+

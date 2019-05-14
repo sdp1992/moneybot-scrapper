@@ -13,8 +13,9 @@ def main():
     while True:
         for stock in stocks:
             price = Scrapper.scrap(load_links.get_link(stock))
-            StockPrice(stock, price).save_to_mongo()
-            print(StockPrice(stock, price).to_json())
+            stock_price = StockPrice(stock, price)
+            stock_price.save_to_mongo()
+            print(StockPrice(stock, price).json())
             time.sleep(20)
 
 

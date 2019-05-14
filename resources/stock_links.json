@@ -1,5 +1,14 @@
 {
   "HDFCBANK": "https://www.moneycontrol.com/india/stockpricequote/banks-private-sector/hdfcbank/HDF01",
   "TCS": "https://www.moneycontrol.com/india/stockpricequote/computers-software/tataconsultancyservices/TCS",
-  "ICICIBANK": "https://www.moneycontrol.com/india/stockpricequote/banks-private-sector/icicibank/ICI02"
+  "ICICIBANK": "https://www.moneycontrol.com/india/stockpricequote/banks-private-sector/icicibank/ICI02",
+  "SBIN": "https://www.moneycontrol.com/india/stockpricequote/banks-public-sector/statebankindia/SBI",
+  "YESBANK": "https://www.moneycontrol.com/india/stockpricequote/banks-private-sector/yesbank/YB",
+  "RELIANCE": "https://www.moneycontrol.com/india/stockpricequote/refineries/relianceindustries/RI",
+  "ITC": "https://www.moneycontrol.com/india/stockpricequote/cigarettes/itc/ITC",
+  "INFY": "https://www.moneycontrol.com/india/stockpricequote/computers-software/infosys/IT",
+  "MARUTI": "https://www.moneycontrol.com/india/stockpricequote/auto-cars-jeeps/marutisuzukiindia/MS24",
+  "HINDUNILVR": "https://www.moneycontrol.com/india/stockpricequote/personal-care/hindustanunilever/HU",
+  "IOC": "https://www.moneycontrol.com/india/stockpricequote/refineries/indianoilcorporation/IOC"
+
 }
