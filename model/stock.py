@@ -10,7 +10,7 @@ from model.model import Model
 
 COLLECTION_NAME = os.environ.get("MONGODB_COLLECTION")
 
-STOCK_LIST = list(json.load(open("../resources/stock_links.json")).keys())
+STOCK_LIST = list(json.load(open("resources/stock_links.json")).keys())
 
 
 @dataclass(eq=False)
@@ -29,7 +29,6 @@ class StockPrice(Model):
 
     def json(self):
         return {
-            "_id": self._id,
             "stock_code": self.stock_code,
             "price": self.price,
             "insert_time": self.insert_time,
