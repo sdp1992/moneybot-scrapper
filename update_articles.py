@@ -2,7 +2,6 @@ import os
 import time
 import json
 from dotenv import load_dotenv
-# load_dotenv(os.path.join(os.getcwd(), '.env'))
 load_dotenv('.env')
 
 from pymongo.errors import ConnectionFailure

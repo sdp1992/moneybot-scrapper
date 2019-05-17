@@ -22,7 +22,10 @@ class Model(metaclass=ABCMeta):
 
     @classmethod
     def find_one_by(cls: Type[T], collection: str, attribute: str, value: Union[str, Dict]) -> Union[T, None]:
-        return cls(**MongoDatabase.find_one(collection, {attribute: value}))
+        try:
+            return cls(**MongoDatabase.find_one(collection, {attribute: value}))
+        except TypeError:
+            return None
 
     @classmethod
     def find_many_by(cls: Type[T], collection: str, attribute: str, value: Union[str, Dict], top_n: int) -> List[T]:
