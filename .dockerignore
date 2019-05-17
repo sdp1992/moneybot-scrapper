@@ -1,5 +1,8 @@
 # Files to ignore
+.env
 .env.*
 README.md
 Pipfile
 Pipfile.lock
+update_articles.sh
+update_articles.py
