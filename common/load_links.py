@@ -1,4 +1,10 @@
 
+"""
+common.load_links
+By default, uses `resources/stock_links.json` file inside the `resources` top-level folder.
+Run `common.load_links.refresh()`.
+"""
+
 import json
 
 cached_links = {}

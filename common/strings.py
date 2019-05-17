@@ -2,7 +2,7 @@
 """
 common.strings
 By default, uses `en-gb.json` file inside the `strings` top-level folder.
-If language changes, set `libs.strings.default_locale` and run `common.strings.refresh()`.
+If language changes, set `common.strings.default_locale` and run `common.strings.refresh()`.
 """
 import json
 
@@ -17,5 +17,5 @@ def refresh():
         cached_strings = json.load(f)
 
 
-def gettext(name):
+def get_text(name):
     return cached_strings[name]

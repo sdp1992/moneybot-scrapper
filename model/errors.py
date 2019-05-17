@@ -5,7 +5,3 @@ class ScrappingErrors(Exception):
         self.message = message
 
 
-class UnableToExtractError(ScrappingErrors):
-    pass
-
-

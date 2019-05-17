@@ -1,9 +1,8 @@
 import os
 from bs4 import BeautifulSoup
 import requests
-import requests.exceptions as RequestErrors
 
-from model.errors import *
+from model.errors import ScrappingErrors
 
 
 class Scrapper:
@@ -13,10 +12,16 @@ class Scrapper:
 
     @staticmethod
     def scrap(link):
+        """This function takes a link and scraps that link and extract information base on tags.
+        :param link: str Link of the website
+        :return price: float Return current price of stock
+        """
         try:
             response = requests.get(link)
-            if response.status_code != 200:
-                return 0
+        except requests.exceptions.RequestException as e:
+            print("Unable to reach servers...")
+            return 0
+        else:
             try:
                 content = response.content
                 soup = BeautifulSoup(content, "html.parser")
@@ -24,13 +29,11 @@ class Scrapper:
                 string_price = element.strip()
                 price = float(string_price)
                 return price
-            except UnableToExtractError as e:
-                print("Unable to extract information.")
+            except ScrappingErrors as e:
+                print("Unable to extract information from the DOM...")
+                return 0
             finally:
                 response.close()
-
-        except RequestErrors as e:
-            print("Unable to get response")
 
 
 
