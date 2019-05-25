@@ -1,14 +1,77 @@
 {
-  "HDFCBANK": "https://www.moneycontrol.com/india/stockpricequote/banks-private-sector/hdfcbank/HDF01",
-  "TCS": "https://www.moneycontrol.com/india/stockpricequote/computers-software/tataconsultancyservices/TCS",
-  "ICICIBANK": "https://www.moneycontrol.com/india/stockpricequote/banks-private-sector/icicibank/ICI02",
-  "SBIN": "https://www.moneycontrol.com/india/stockpricequote/banks-public-sector/statebankindia/SBI",
-  "YESBANK": "https://www.moneycontrol.com/india/stockpricequote/banks-private-sector/yesbank/YB",
-  "RELIANCE": "https://www.moneycontrol.com/india/stockpricequote/refineries/relianceindustries/RI",
-  "ITC": "https://www.moneycontrol.com/india/stockpricequote/cigarettes/itc/ITC",
-  "INFY": "https://www.moneycontrol.com/india/stockpricequote/computers-software/infosys/IT",
-  "MARUTI": "https://www.moneycontrol.com/india/stockpricequote/auto-cars-jeeps/marutisuzukiindia/MS24",
-  "HINDUNILVR": "https://www.moneycontrol.com/india/stockpricequote/personal-care/hindustanunilever/HU",
-  "IOC": "https://www.moneycontrol.com/india/stockpricequote/refineries/indianoilcorporation/IOC"
-
+  "HDFCBANK": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/banks-private-sector/hdfcbank/HDF01",
+    "name": "HDFC Bank",
+    "sector": "banking"
+  },
+  "TCS": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/computers-software/tataconsultancyservices/TCS",
+    "name": "Tata Consultancy Services",
+    "sector": "information technology"
+  },
+  "ICICIBANK": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/banks-private-sector/icicibank/ICI02",
+    "name": "ICICI Bank",
+    "sector": "banking"
+  },
+  "SBIN": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/banks-public-sector/statebankindia/SBI",
+    "name": "State Bank of India",
+    "sector": "banking"
+  },
+  "YESBANK": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/banks-private-sector/yesbank/YB",
+    "name": "Yes Bank",
+    "sector": "banking"
+  },
+  "RELIANCE": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/refineries/relianceindustries/RI",
+    "name": "Reliance Industries",
+    "sector": "refineries"
+  },
+  "ITC": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/cigarettes/itc/ITC",
+    "name": "ITC",
+    "sector": "cigarettes"
+  },
+  "INFY": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/computers-software/infosys/IT",
+    "name": "Infosys",
+    "sector": "information technology"
+  },
+  "MARUTI": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/auto-cars-jeeps/marutisuzukiindia/MS24",
+    "name": "Maruti Suzuki India",
+    "sector": "automobile"
+  },
+  "HINDUNILVR": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/personal-care/hindustanunilever/HU",
+    "name": "Hindustan Unilever",
+    "sector": "personal care"
+  },
+  "IOC": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/refineries/indianoilcorporation/IOC",
+    "name": "Indian Oil Corporation",
+    "sector": "refineries"
+  },
+    "LT": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/infrastructure-general/larsentoubro/LT",
+    "name": "Larsen & Toubro",
+    "sector": "infrastructure"
+  },
+    "BHARTIARTL": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/telecommunications-service/bhartiairtel/BA08",
+    "name": "Bharti Airtel",
+    "sector": "telecommunications"
+  },
+    "CIPLA": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/pharmaceuticals/cipla/C",
+    "name": "Cipla",
+    "sector": "pharmaceuticals"
+  },
+    "TATASTEEL": {
+    "link": "https://www.moneycontrol.com/india/stockpricequote/steel-large/tatasteel/TIS",
+    "name": "Tata Steel",
+    "sector": "steel"
+  }
 }

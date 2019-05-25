@@ -1,4 +1,4 @@
-import uuid
+import pytz
 import os
 from datetime import datetime
 import json
@@ -19,11 +19,10 @@ class StockPrice(Model):
     price: float
     insert_time: datetime = field(default_factory=lambda: datetime.utcnow())
     exchange: str = field(default="NSE")
-    _id: str = field(default=None)
 
     def save_to_mongo(self, collection="stock_prices"):
         try:
-            MongoDatabase.insert(collection, self.json())
+            Model.insert_to_mongo(collection, self.json())
         except ConnectionFailure:
             print("Unable to connect MongoDB...")
 

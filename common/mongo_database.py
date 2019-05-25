@@ -1,6 +1,6 @@
 import pymongo
 import os
-from typing import Dict
+from typing import Dict, Union
 
 
 class MongoDatabase:
@@ -8,11 +8,11 @@ class MongoDatabase:
     DATABASE = pymongo.MongoClient(URI).get_default_database()
 
     @staticmethod
-    def update(collection: str, query, data):
+    def update(collection: str, query, data) -> None:
         MongoDatabase.DATABASE[collection].update(query, data, upsert=True)
 
     @staticmethod
-    def insert(collection: str, data):
+    def insert(collection: str, data) -> None:
         MongoDatabase.DATABASE[collection].insert(data)
 
     @staticmethod
@@ -20,7 +20,7 @@ class MongoDatabase:
         return MongoDatabase.DATABASE[collection].find(query)
 
     @staticmethod
-    def find_one(collection: str, query: Dict) -> Dict:
+    def find_one(collection: str, query: Dict) -> Union[Dict, None]:
         return MongoDatabase.DATABASE[collection].find_one(query)
 
 

@@ -12,6 +12,7 @@ requests = "*"
 dataclasses = "*"
 python-dotenv = "*"
 newsapi-python = "*"
+pytz = "*"
 
 [requires]
 python_version = "3.6"

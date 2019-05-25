@@ -1,4 +1,3 @@
-import os
 from bs4 import BeautifulSoup
 import requests
 
@@ -7,7 +6,7 @@ from model.errors import ScrappingErrors
 
 class Scrapper:
 
-    def __init__(self, stock_code, price):
+    def __init__(self):
         pass
 
     @staticmethod
@@ -18,22 +17,20 @@ class Scrapper:
         """
         try:
             response = requests.get(link)
+            content = response.content
+            soup = BeautifulSoup(content, "html.parser")
+            element = soup.find("span", {"id": "Nse_Prc_tick"}).strong.get_text()
+            string_price = element.strip()
+            price = float(string_price)
+            response.close()
+            return price
         except requests.exceptions.RequestException as e:
             print("Unable to reach servers...")
             return 0
-        else:
-            try:
-                content = response.content
-                soup = BeautifulSoup(content, "html.parser")
-                element = soup.find("span", {"id": "Nse_Prc_tick"}).strong.get_text()
-                string_price = element.strip()
-                price = float(string_price)
-                return price
-            except ScrappingErrors as e:
-                print("Unable to extract information from the DOM...")
-                return 0
-            finally:
-                response.close()
+        except ScrappingErrors as e:
+            print("Unable to extract information from the DOM...")
+            return 0
+
 
 
 

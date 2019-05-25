@@ -10,7 +10,6 @@ T = TypeVar('T', bound='Model')
 
 class Model(metaclass=ABCMeta):
     stock_code: str
-    collection: str
     _id: str
 
     def __init__(self, *args, **kwargs):
@@ -34,3 +33,8 @@ class Model(metaclass=ABCMeta):
     @classmethod
     def get_by_stock_code(cls: Type[T], collection: str, stock_code: str) -> Union[T, None]:
         return cls.find_one_by(collection, "stock_code", stock_code)
+
+    @classmethod
+    def insert_to_mongo(cls, collection: str, data: Dict) -> None:
+        MongoDatabase.DATABASE[collection].insert(data)
+
