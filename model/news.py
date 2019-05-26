@@ -1,4 +1,5 @@
 import os
+import uuid
 from datetime import datetime
 from dataclasses import dataclass, field
 from typing import Dict
@@ -17,30 +18,30 @@ api = NewsApiClient(api_key=os.environ.get("GOOGLE_NEWS_API_KEY"))
 @dataclass(eq=False)
 class News(Model):
     stock_code: str
+    q_value: str
     articles: list = field(default_factory=list)
-    last_updated: datetime = None
-    _id: str = field(default=None)
+    last_updated: datetime = field(default_factory=datetime.utcnow)
+    _id: str = field(default=uuid.uuid4().hex)
 
     def load_articles(self):
         try:
-            response = api.get_everything(q=self.stock_code + " stock news",
-                                          language='en', sort_by='popularity', page_size=10)
+            response = api.get_everything(q=self.q_value + " stock news",
+                                          language='en', sort_by='relevancy', page_size=10)
 
-            if response['status'] is not "ok":
-                raise InvalidNewsApiError("Invalid response.")
+            # if response['status'] is not "ok":
+            #     raise InvalidNewsApiError("Invalid response.")
+
+            self.articles = response['articles']
+            self.last_updated = datetime.utcnow()
 
         except NewsAPIException:
             print("Unable to get latest news...")
         except InvalidNewsApiError as e:
             print(e.message)
 
-        else:
-            self.articles = response['articles']
-            self.last_updated = datetime.utcnow()
-
     def update_articles(self, collection="news_articles"):
         try:
-            MongoDatabase.update(collection, {"stock_code": self.stock_code}, self.json())
+            Model.update_to_mongo(collection, {"stock_code": self.stock_code}, self.json())
         except ConnectionFailure:
             print("Unable to connect to Mongodb...")
 
