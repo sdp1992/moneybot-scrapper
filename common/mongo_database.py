@@ -12,7 +12,7 @@ class MongoDatabase:
         MongoDatabase.DATABASE[collection].update(query, data, upsert=True)
 
     @staticmethod
-    def insert(collection: str, data) -> None:
+    def insert(collection: str, data: Dict):
         MongoDatabase.DATABASE[collection].insert(data)
 
     @staticmethod

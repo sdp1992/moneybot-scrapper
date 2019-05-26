@@ -9,7 +9,7 @@ from common import load_links
 def main():
     load_links.refresh()  # Loading stock-link dictionary
 
-    stocks = load_links.get_list_of_stocks() # Getting list of stocks to track
+    stocks = load_links.get_list_of_stocks()  # Getting list of stocks to track
 
     while True:
         for stock in stocks:

@@ -35,6 +35,10 @@ class Model(metaclass=ABCMeta):
         return cls.find_one_by(collection, "stock_code", stock_code)
 
     @classmethod
+    def insert_to_mongo(cls, collection: str, data: Dict) -> None:
+        MongoDatabase.insert(collection, data)
+
+    @classmethod
     def update_to_mongo(cls, collection: str, query: Dict, data: Dict) -> None:
-        MongoDatabase.DATABASE[collection].update(query, data, upsert=True)
+        MongoDatabase.update(collection, query, data)
 

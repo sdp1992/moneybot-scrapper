@@ -1,11 +1,10 @@
-import pytz
+import uuid
 import os
-from datetime import datetime
 import json
+from datetime import datetime
 from dataclasses import dataclass, field
 from pymongo.errors import ConnectionFailure
 
-from common.mongo_database import MongoDatabase
 from model.model import Model
 
 COLLECTION_NAME = os.environ.get("MONGODB_COLLECTION")
@@ -22,7 +21,7 @@ class StockPrice(Model):
 
     def save_to_mongo(self, collection="stock_prices"):
         try:
-            Model.insert_to_mongo(collection, self.json())
+            self.insert_to_mongo(collection, self.json())
         except ConnectionFailure:
             print("Unable to connect MongoDB...")
 
@@ -31,6 +30,6 @@ class StockPrice(Model):
             "stock_code": self.stock_code,
             "price": self.price,
             "insert_time": self.insert_time,
-            "exchange": self.exchange
+            "exchange": self.exchange,
         }
 

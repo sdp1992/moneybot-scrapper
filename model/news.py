@@ -18,14 +18,13 @@ api = NewsApiClient(api_key=os.environ.get("GOOGLE_NEWS_API_KEY"))
 @dataclass(eq=False)
 class News(Model):
     stock_code: str
-    q_value: str
     articles: list = field(default_factory=list)
     last_updated: datetime = field(default_factory=datetime.utcnow)
     _id: str = field(default=uuid.uuid4().hex)
 
-    def load_articles(self):
+    def load_articles(self, query):
         try:
-            response = api.get_everything(q=self.q_value + " stock news",
+            response = api.get_everything(q=query + " stock news",
                                           language='en', sort_by='relevancy', page_size=10)
 
             # if response['status'] is not "ok":
@@ -41,7 +40,7 @@ class News(Model):
 
     def update_articles(self, collection="news_articles"):
         try:
-            Model.update_to_mongo(collection, {"stock_code": self.stock_code}, self.json())
+            self.update_to_mongo(collection, {"stock_code": self.stock_code}, self.json())
         except ConnectionFailure:
             print("Unable to connect to Mongodb...")
 

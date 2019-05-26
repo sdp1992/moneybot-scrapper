@@ -16,11 +16,11 @@ def run_updater():
         try:
             news = News.get_by_stock_code(collection="news_articles", stock_code=stock)
             if news is None:
-                new_news = News(stock_code=stock, q_value=stock_dict[stock]['name'])
-                new_news.load_articles()
+                new_news = News(stock_code=stock)
+                new_news.load_articles(query=stock_dict[stock]['name'])
                 new_news.update_articles()
             else:
-                news.load_articles()
+                news.load_articles(stock_dict[stock]['name'])
                 news.update_articles()
             print("Updated: " + stock)
         except ConnectionFailure:
